@@ -5,21 +5,15 @@ build-a-windows:
   stage: build
   tags: windows
   script:
-    - call changes.bat
-    - cd a
-    - echo "Building a..."
+    - build_if_changed.bat a dir /A
 
 build-a-unix:
   stage: build
   tags: unix
   script:
-    - ./changes a
-    - cd a
-    - echo "Building a..."
+    - ./build_if_changed.sh a ls
 
 build-b:
   stage: build
   script:
-    - ./changes b
-    - cd b
-    - echo "Building b (call build script here)..."
+    - ./build_if_changed.sh b ls -hal
