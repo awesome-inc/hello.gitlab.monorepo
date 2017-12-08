@@ -6,7 +6,7 @@ if "%ref%"=="" set ref=HEAD~
 
 echo Checking for changes of folder '%folder%' from ref '%ref%'...
 
-call git diff %ref% --name-only | findstr %folder% > NUL
+call git diff %ref% --name-only | findstr /R "^%folder%/" > NUL
 set /A changes=%ERRORLEVEL%
 
 if "%changes%"=="0" (
