@@ -4,7 +4,8 @@ ref=${2:-HEAD~}
 
 echo "Checking for changes of folder '${folder}' from ref '${ref}'..."
 
-changes=`git diff ${ref} --name-only | grep -q ^${folder}\/`
+git diff ${ref} --name-only | grep -qw ${folder}
+changes=$?
 if [[ ${changes} -eq 0 ]]; then
   echo "Folder '${folder}' has changed."
 else
