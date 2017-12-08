@@ -5,13 +5,13 @@ build-a-windows:
   stage: build
   tags: windows
   script:
-    - build_if_changed.bat a dir /A
+    - build_if_changed.bat a type README.md
 
 build-a-unix:
   stage: build
   tags: unix
   script:
-    - ./build_if_changed.sh a ls
+    - ./build_if_changed.sh a cat README.md
 
 build-b:
   stage: build
