@@ -3,7 +3,7 @@ folder=${1}
 command=${@:2}
 
 ./changes.sh ${folder}
-if [[ ${changes} -eq 0 ]]; then
+if [[ $? -ne 0 ]]; then
   echo "Skipping build for '${folder}'."
   exit 0
 fi
