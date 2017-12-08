@@ -1,0 +1,25 @@
+stages:
+  - build
+
+build-a-windows:
+  stage: build
+  tags: windows
+  script:
+    - call changes.bat
+    - cd a
+    - echo "Building a..."
+
+build-a-unix:
+  stage: build
+  tags: unix
+  script:
+    - ./changes a
+    - cd a
+    - echo "Building a..."
+
+build-b:
+  stage: build
+  script:
+    - ./changes b
+    - cd b
+    - echo "Building b (call build script here)..."
