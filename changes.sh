@@ -1,5 +1,5 @@
 #!/bin/bash
-folder=${1:-rules}
+folder=${1}
 ref=${2:-HEAD~}
 
 echo "Checking for changes of folder '${folder}' from ref '${ref}'..."
