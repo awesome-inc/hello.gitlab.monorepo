@@ -1,4 +1,4 @@
-[![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/mkoertgen/mkoertgen/hello.gitlab.monorepo/master)
+[![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/mkoertgen/hello.gitlab.monorepo/master)
 
 # hello.gitlab.monorepo
 
