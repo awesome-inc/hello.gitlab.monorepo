@@ -1,7 +1,7 @@
 @echo off
 setlocal
 set folder=%1
-set ref=%2
+set ref=%LAST_GREEN_COMMIT%
 if "%ref%"=="" set ref=HEAD~
 
 echo Checking for changes of folder '%folder%' from ref '%ref%'...

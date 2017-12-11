@@ -1,6 +1,6 @@
 #!/bin/bash
 folder=${1}
-ref=${2:-HEAD~}
+ref=${LAST_GREEN_COMMIT:-HEAD~}
 
 echo "Checking for changes of folder '${folder}' from ref '${ref}'..."
 
