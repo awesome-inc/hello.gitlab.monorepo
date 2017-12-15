@@ -62,7 +62,7 @@ services:
 ```
 
 @[3](The service to build)
-@[4](Tag used for the built docker image)
+@[4](Tag for built docker image)
 @[5-6](Docker build context. By convention service name matches directory)
 
 ---
