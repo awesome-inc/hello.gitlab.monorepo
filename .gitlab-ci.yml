@@ -3,12 +3,12 @@
 # - tools: curl & jq
 # - CI_SERVER_URL (e.g. http://mygitlab)
 # - PRIVATE_TOKEN (private token, cf.: https://docs.gitlab.com/ee/api/#personal-access-tokens)
-# Also needed but that set by Gitlab:
+# Also needed but set by Gitlab for runner:
 # - CI_PROJECT_ID (e.g. 42)
 # 
 before_script:
-    - export LAST_COMMIT=$(./last_green_commit.sh)
-    # - last_green_commit.bat > last_green.commit && set /P LAST_GREEN_COMMIT=<last_green.commit
+    - export LAST_COMMIT=$(.gitlab/last_green_commit.sh)
+    # - .gitlab\last_green_commit.bat > last_green.commit && set /P LAST_GREEN_COMMIT=<last_green.commit
 
 stages:
   - build
@@ -18,19 +18,19 @@ build-a-windows:
   tags: windows
   # example for one liner (preferred) on windows
   script:
-    - build_if_changed.bat a type README.md
+    - .gitlab\build_if_changed.bat a type README.md
 
 build-a-unix:
   stage: build
   tags: unix
   # example for one liner (preferred) on linix
   script:
-    - ./build_if_changed.sh a cat README.md
+    - .gitlab/build_if_changed.sh a cat README.md
 
 build-b:
   stage: build
   # example for multiple lines (discouraged) on linux
   script:
-    - if [[ $(./changes.sh b) -ne 0]]; then echo "Skipping build for '${folder}'."; exit 0; fi
+    - if [[ $(.gitlab/changes.sh b) -ne 0]]; then echo "Skipping build for '${folder}'."; exit 0; fi
     - cd b
     - ls -hal

@@ -2,7 +2,7 @@
 setlocal
 set folder=%1
 
-call changes.bat %folder%
+call %~dp0changes.bat %folder%
 if NOT "%ERRORLEVEL%"=="0" (
   echo Skipping build for '%folder%'.
   exit /B 0
