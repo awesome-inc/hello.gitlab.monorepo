@@ -22,8 +22,8 @@
 
 ### <span style="color: #e49436">How to use?</span>
 
-- Add *.monorepo.gitlab* as a submodule |
-- Update your *gitlab-ci.yml* |
+- Add .monorepo.gitlab as a submodule |
+- Update your gitlab-ci.yml |
 
 +++
 
@@ -49,8 +49,7 @@ $ git submodule add \
 
 ### <span style="color: #e49436">Example using docker-compose</span>
 
-Say your using [docker-compose](https://docs.docker.com/compose/) to orchestrate & build your services.
-Your `docker-compose.yml` may look something like this
+Your [docker-compose.yml](https://docs.docker.com/compose/) may look something like this
 
 ```yml
 version: '3'
@@ -64,11 +63,11 @@ services:
 
 @[3](The service to build)
 @[4](Tag used for the built docker image)
-@[5-6](Docker build context. Note that by convention service name matches directory)
+@[5-6](Docker build context. By convention service name matches directory)
 
 ---
 
-And you build and push each service through a script `build.sh` which goes something like this
+Build service using `build.sh`
 
 ```bash
 #!/bin/bash -ex
@@ -79,12 +78,11 @@ docker-compose push ${component}
 ```
 
 @[3](Build the specified service/component)
-@[4-5](On `master` pushes the built image right away to the registry)
+@[4-5](On `master` push built image to Docker registry)
 
 ---
 
 *Pro Tip:* Use [YAML anchors](http://blog.daemonl.com/2016/02/yaml.html#yaml-anchors-references-extend) to keep your jobs DRY.
-Your jobs in `.gitlab-ci.yml` would look something like this
 
 ```yml
 # Use yml anchors, to keep jobs DRY, cf.: https://docs.gitlab.com/ee/ci/yaml/#anchors
@@ -93,7 +91,8 @@ Your jobs in `.gitlab-ci.yml` would look something like this
     - linux
     - docker
   stage: build
-  script: .monorepo.gitlab/build_if_changed.sh ${CI_JOB_NAME} ./build.sh ${CI_JOB_NAME}
+  script: .monorepo.gitlab/build_if_changed.sh ${CI_JOB_NAME} \
+            ./build.sh ${CI_JOB_NAME}
 
 webapp:
   <<: *build_definition
@@ -102,8 +101,8 @@ webapp:
 @[2-7](The job template)
 @[3-5](All jobs use the same *tags*...)
 @[6](And the same *stage*...)
-@[7](And the same *script*. Note that we use *CI_JOB_NAME*!)
-@[9-10](One job is specified by just its name and the template. Great!)
+@[7-8](And the same *script*. Note that we use *CI_JOB_NAME*!)
+@[10-11](One job is specified by just its name and the template. Great!)
 
 - That's it! |
 
