@@ -22,8 +22,8 @@
 
 ### <span style="color: #e49436">How to use?</span>
 
-- Add `.monorepo.gitlab` as a submodule |
-- Update your `gitlab-ci.yml` |
+- Add *.monorepo.gitlab* as a submodule |
+- Update your *gitlab-ci.yml* |
 
 +++
 
@@ -33,15 +33,80 @@
 <br>
 
 ```console
-$ git submodule add https://github.com/awesome-inc/monorepo.gitlab.git .monorepo.gitlab
+$ git submodule add \
+    https://github.com/awesome-inc/monorepo.gitlab.git \
+    .monorepo.gitlab
 ```
 
 +++?code=.gitlab-ci.yml&lang=yml&title=Step 2. Update your gitlab-ci.yml
 
-@[1-3](Set an API token for GitLab)
+@[1-3](Install tools and set an API token for GitLab)
 @[5](Instruct GitLab CI to clone submodules)
 @[6](Specify your GitLab Server url)
 @[7-8](Add before script to check for last green commit)
+
+---
+
+### <span style="color: #e49436">Example using docker-compose</span>
+
+Say your using [docker-compose](https://docs.docker.com/compose/) to orchestrate & build your services.
+Your `docker-compose.yml` may look something like this
+
+```yml
+version: '3'
+services:
+  webapp:
+    image: "${DOCKER_REGISTRY}/${REPO}/${PRODUCT}_webapp:${TAG}"
+    build:
+      context: ./webapp
+  ...
+```
+
+@[3](The service to build)
+@[4](Tag used for the built docker image)
+@[5-6](Docker build context. Note that by convention service name matches directory)
+
+---
+
+And you build and push each service through a script `build.sh` which goes something like this
+
+```bash
+#!/bin/bash -ex
+component=$1
+docker-compose build ${component}
+if [ "$CI_BUILD_REF_NAME" -ne "master" ]; then exit; fi
+docker-compose push ${component}
+```
+
+@[3](Build the specified service/component)
+@[4-5](On `master` pushes the built image right away to the registry)
+
+---
+
+*Pro Tip:* Use [YAML anchors](http://blog.daemonl.com/2016/02/yaml.html#yaml-anchors-references-extend) to keep your jobs DRY.
+Your jobs in `.gitlab-ci.yml` would look something like this
+
+```yml
+# Use yml anchors, to keep jobs DRY, cf.: https://docs.gitlab.com/ee/ci/yaml/#anchors
+.build_template: &build_definition
+  tags:
+    - linux
+    - docker
+  stage: build
+  script: .monorepo.gitlab/build_if_changed.sh ${CI_JOB_NAME} ./build.sh ${CI_JOB_NAME}
+
+webapp:
+  <<: *build_definition
+```
+
+@[2-7](The job template)
+@[3-5](All jobs use the same *tags*...)
+@[6](And the same *stage*...)
+@[7](And the same *script*. Note that we use *CI_JOB_NAME*!)
+@[9-10](One job is specified by just its name and the template. Great!)
+
+- That's it! |
+
 ---
 
 ### View The <a target="_blank" href="https://github.com/mkoertgen/hello.gitlab.monorepo">Code</a>
