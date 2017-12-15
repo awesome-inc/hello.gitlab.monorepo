@@ -1,14 +1,11 @@
-# Determine the last green commit.
-# Prerequisites:
-# - tools: curl & jq
-# - CI_SERVER_URL (e.g. http://mygitlab)
-# - PRIVATE_TOKEN (private token, cf.: https://docs.gitlab.com/ee/api/#personal-access-tokens)
-# Also needed but set by Gitlab for runner:
-# - CI_PROJECT_ID (e.g. 42)
-# 
+# needs `curl`, `jq` 1.5 and `${PRIVATE_TOKEN}, cf.:
+# - https://docs.gitlab.com/ee/api/#personal-access-tokens
+# - https://docs.gitlab.com/ce/ci/variables/README.html#secret-variables
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+  CI_SERVER_URL: https://mygitlab.mycompany.com
 before_script:
-    - export LAST_COMMIT=$(.gitlab/last_green_commit.sh)
-    # - .gitlab\last_green_commit.bat > last_green.commit && set /P LAST_GREEN_COMMIT=<last_green.commit
+    - .monorepo.gitlab/last_green_commit.sh
 
 stages:
   - build
@@ -18,19 +15,19 @@ build-a-windows:
   tags: windows
   # example for one liner (preferred) on windows
   script:
-    - .gitlab\build_if_changed.bat a type README.md
+    - .monorepo.gitlab\build_if_changed.bat a cd a && type README.md
 
 build-a-unix:
   stage: build
   tags: unix
   # example for one liner (preferred) on linix
   script:
-    - .gitlab/build_if_changed.sh a cat README.md
+    - .monorepo.gitlab/build_if_changed.sh a cd a && cat README.md
 
 build-b:
   stage: build
   # example for multiple lines (discouraged) on linux
   script:
-    - if [[ $(.gitlab/changes.sh b) -ne 0]]; then echo "Skipping build for '${folder}'."; exit 0; fi
+    - if [[ $(.monorepo.gitlab/changes.sh b) -ne 0]]; then echo "Skipping build for '${folder}'."; exit 0; fi
     - cd b
     - ls -hal
