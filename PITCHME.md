@@ -29,15 +29,24 @@ Google knows. Top 5 results for "monorepo"
 
 ---
 
-### <span style="color: #e49436">Why?</span>
+### <span style="color: #e49436">When to use</span>
 
-- TODO |
+You should head for Monorepos if you have
+- multiple related, well separated projects and ...|
+- automation already setup well and ...|
+- cross-project awareness/feedback becomes an issue. |
 
 ---
 
-### <span style="color: #e49436">Why?</span>
+### <span style="color: #e49436">When not to use</span>
 
-- TODO |
+Check your *DevOps Maturity* before considering a Monorepo 
+(see e.g. [A Maturity Model for Continuous Delivery](http://bekkopen.github.io/maturity-model/)
+
+Monorepos are not for you if you have
+- poorly separated projects or... |
+- poor automation (versioning, tests, deployment, ...)
+- ...fill the dots...
 
 ---
 
