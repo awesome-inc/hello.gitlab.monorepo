@@ -106,7 +106,8 @@ $ git submodule add \
 @[5](Instruct GitLab CI to clone submodules)
 @[6](Specify your GitLab Server url)
 @[7-8](Add before script to check for last green commit)
-@[23-25](Build `./projectX` only if `./projectX` changed)
+@[17-18](Build `./projectX` only if `./projectX` changed)
+@[24-25](Works on both Linux & Windows)
 
 ---
 
