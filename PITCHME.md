@@ -19,7 +19,7 @@ Google knows. Top 5 results for "monorepo"
 <li class="fragment">[Monorepos in Git - Atlassian](https://developer.atlassian.com/blog/2015/10/monorepos-in-git/)</li>
 </ul>
 
----
++++
 
 ### <span style="color: #e49436">Seriously. What is a Monorepo?</span>
 
@@ -27,7 +27,7 @@ Google knows. Top 5 results for "monorepo"
 > a Monorepo is a single repository holding the code of multiple projects 
 > which may or may not be related in some way.
 
----
++++
 
 ### <span style="color: #e49436">When to use</span>
 
@@ -36,7 +36,7 @@ You should head for Monorepos if you have
 - automation already setup well and ...|
 - cross-project awareness/feedback becomes an issue. |
 
----
++++
 
 ### <span style="color: #e49436">When not to use</span>
 
@@ -53,8 +53,8 @@ Monorepos are not for you if you have
 
 <ul>
 <li class="fragment">Right now, GitLab CI is not really built for monorepos (cf.: [gitlab-ce/issues/19813](https://gitlab.com/gitlab-org/gitlab-ce/issues/19813))</li>
-<li class="fragment">Build all projects on each push not just too slow</li>
-<li class="fragment">Know what changed, know what project to build</li>
+<li class="fragment">Build all projects on each push just too slow</li>
+<li class="fragment">Know what changed, know what to build</li>
 </ul>
 
 ---
@@ -69,12 +69,12 @@ Monorepos are not for you if you have
 <li class="fragment">Hopefully integrated into GitLab CI soon.</li>
 </ul>
 
----
++++
 
 ### <span style="color: #e49436">How does it work?</span>
 
 <ul>
-<li class="fragment">Get commit of last *green* build (GitLab API)).</li>
+<li class="fragment">Get commit of last *green* build (GitLab API).</li>
 <li class="fragment">Check for changes using `git diff`.</li>
 </ul>
 
