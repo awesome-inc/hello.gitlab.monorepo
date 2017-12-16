@@ -11,11 +11,13 @@
 
 Google knows. The top 5 results when googling for "monorepo"
 
-- [Advantages of monolithic version control - Dan Luu](https://danluu.com/monorepo/) |
-- [Monorepos in the Wild](https://medium.com/@maoberlehner/monorepos-in-the-wild-33c6eb246cb9) |
-- [Why is Babel a monorepo?](https://github.com/babel/babel/blob/master/doc/design/monorepo.md) |
-- [korfuri/awesome-monorepo](https://github.com/korfuri/awesome-monorepo) |
-- [Monorepos in Git - Atlassian](https://developer.atlassian.com/blog/2015/10/monorepos-in-git/) |
+<ul>
+<li>[Advantages of monolithic version control - Dan Luu](https://danluu.com/monorepo/)</li>
+<li>[Monorepos in the Wild](https://medium.com/@maoberlehner/monorepos-in-the-wild-33c6eb246cb9)</li>
+<li>[Why is Babel a monorepo?](https://github.com/babel/babel/blob/master/doc/design/monorepo.md)</li>
+<li>[korfuri/awesome-monorepo](https://github.com/korfuri/awesome-monorepo)</li>
+<li>[Monorepos in Git - Atlassian](https://developer.atlassian.com/blog/2015/10/monorepos-in-git/)</li>
+</ul>
 
 ---
 
