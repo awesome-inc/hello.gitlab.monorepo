@@ -12,11 +12,11 @@
 Google knows. The top 5 results when googling for "monorepo"
 
 <ul>
-<li>[Advantages of monolithic version control - Dan Luu](https://danluu.com/monorepo/)</li>
-<li>[Monorepos in the Wild](https://medium.com/@maoberlehner/monorepos-in-the-wild-33c6eb246cb9)</li>
-<li>[Why is Babel a monorepo?](https://github.com/babel/babel/blob/master/doc/design/monorepo.md)</li>
-<li>[korfuri/awesome-monorepo](https://github.com/korfuri/awesome-monorepo)</li>
-<li>[Monorepos in Git - Atlassian](https://developer.atlassian.com/blog/2015/10/monorepos-in-git/)</li>
+<li class="fragment">[Advantages of monolithic version control - Dan Luu](https://danluu.com/monorepo/)</li>
+<li class="fragment">[Monorepos in the Wild](https://medium.com/@maoberlehner/monorepos-in-the-wild-33c6eb246cb9)</li>
+<li class="fragment">[Why is Babel a monorepo?](https://github.com/babel/babel/blob/master/doc/design/monorepo.md)</li>
+<li class="fragment">[korfuri/awesome-monorepo](https://github.com/korfuri/awesome-monorepo)</li>
+<li class="fragment">[Monorepos in Git - Atlassian](https://developer.atlassian.com/blog/2015/10/monorepos-in-git/)</li>
 </ul>
 
 ---
@@ -37,17 +37,21 @@ Google knows. The top 5 results when googling for "monorepo"
 
 ### <span style="color: #e49436">What you get here?</span>
 
-- Right now, GitLab CI is not really built for monorepos (cf.: [gitlab-ce/issues/19813](https://gitlab.com/gitlab-org/gitlab-ce/issues/19813)) |
-- Building all projects on each push not feasible |
-- We need to know what changed, in order know what project to build |
-- git diff to the rescue! |
+<ul>
+<li class="fragment">Right now, GitLab CI is not really built for monorepos (cf.: [gitlab-ce/issues/19813](https://gitlab.com/gitlab-org/gitlab-ce/issues/19813))</li>
+<li class="fragment">Buil all projects on each push not just too slow</li>
+<li class="fragment">Know what changed, know what projects to build</li>
+<li class="fragment">`git diff` to the rescue!</li>
+</ul>
 
 ---
 
 ### <span style="color: #e49436">How to use this repo?</span>
 
-- Add .monorepo.gitlab as a submodule |
-- Update your gitlab-ci.yml |
+<ul>
+<li class="fragment">Add `.monorepo.gitlab` as a submodule</li>
+<li class="fragment">Update your gitlab-ci.yml`</li>
+</ul>
 
 +++
 
