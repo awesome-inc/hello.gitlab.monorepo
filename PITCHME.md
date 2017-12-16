@@ -9,7 +9,7 @@
 
 ### <span style="color: #e49436">What is a Monorepo?</span>
 
-Google knows. The top 5 results when googling for "monorepo"
+Google knows. Top 5 results for "monorepo"
 
 <ul>
 <li class="fragment">[Advantages of monolithic version control - Dan Luu](https://danluu.com/monorepo/)</li>
@@ -29,28 +29,54 @@ Google knows. The top 5 results when googling for "monorepo"
 
 ---
 
-### <span style="color: #e49436">Why and When?</span>
+### <span style="color: #e49436">Why?</span>
 
 - TODO |
 
 ---
 
-### <span style="color: #e49436">What you get here?</span>
+### <span style="color: #e49436">Why?</span>
+
+- TODO |
+
+---
+
+### <span style="color: #e49436">Monorepo with GitLab CI?</span>
 
 <ul>
 <li class="fragment">Right now, GitLab CI is not really built for monorepos (cf.: [gitlab-ce/issues/19813](https://gitlab.com/gitlab-org/gitlab-ce/issues/19813))</li>
-<li class="fragment">Buil all projects on each push not just too slow</li>
-<li class="fragment">Know what changed, know what projects to build</li>
-<li class="fragment">`git diff` to the rescue!</li>
+<li class="fragment">Build all projects on each push not just too slow</li>
+<li class="fragment">Know what changed, know what project to build</li>
 </ul>
 
 ---
 
-### <span style="color: #e49436">How to use this repo?</span>
+### <span style="color: #e49436">What you get here?</span>
+
+> A simple recipe for how to build a project only when it changed
+> (or its dependencies).
+
+<ul>
+<li class="fragment">An opinionated, production example with `docker-compose`</li>
+<li class="fragment">Hopefully integrated into GitLab CI soon.</li>
+</ul>
+
+---
+
+### <span style="color: #e49436">How does it work?</span>
+
+<ul>
+<li class="fragment">Get commit of last *green* build (GitLab API)).</li>
+<li class="fragment">Check for changes using `git diff`.</li>
+</ul>
+
+---
+
+### <span style="color: #e49436">How to use?</span>
 
 <ul>
 <li class="fragment">Add `.monorepo.gitlab` as a submodule</li>
-<li class="fragment">Update your gitlab-ci.yml`</li>
+<li class="fragment">Adjust your gitlab-ci.yml`</li>
 </ul>
 
 +++
