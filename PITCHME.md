@@ -1,7 +1,7 @@
 @title[Introduction]
 ## Towards Monorepo with <span style="color: #e49436">Gitlab CI</span>
 
-#### TODO
+#### Conditional builds with GitLab CI using docker-compose by example
 <br>
 <br>
 
@@ -9,8 +9,21 @@
 
 ### <span style="color: #e49436">What is a Monorepo?</span>
 
-- TODO |
-- TODO |
+Google knows. The top 5 results when googling for "monorepo"
+
+- [Advantages of monolithic version control - Dan Luu](https://danluu.com/monorepo/) |
+- [Monorepos in the Wild](https://medium.com/@maoberlehner/monorepos-in-the-wild-33c6eb246cb9) |
+- [Why is Babel a monorepo?](https://github.com/babel/babel/blob/master/doc/design/monorepo.md) |
+- [korfuri/awesome-monorepo](https://github.com/korfuri/awesome-monorepo) |
+- [Monorepos in Git - Atlassian](https://developer.atlassian.com/blog/2015/10/monorepos-in-git/) |
+
+---
+
+### <span style="color: #e49436">Seriously. What is a Monorepo?</span>
+
+> Definitions vary but speaking very broadly, 
+> a Monorepo is a single repository holding the code of multiple projects 
+> which may or may not be related in some way.
 
 ---
 
@@ -20,7 +33,16 @@
 
 ---
 
-### <span style="color: #e49436">How to use?</span>
+### <span style="color: #e49436">What you get here?</span>
+
+- Right now, GitLab CI is not really built for monorepos (cf.: [gitlab-ce/issues/19813](https://gitlab.com/gitlab-org/gitlab-ce/issues/19813)) |
+- Building all projects on each push not feasible |
+- We need to know what changed, in order know what project to build |
+- git diff to the rescue! |
+
+---
+
+### <span style="color: #e49436">How to use this repo?</span>
 
 - Add .monorepo.gitlab as a submodule |
 - Update your gitlab-ci.yml |
