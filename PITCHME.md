@@ -106,7 +106,7 @@ $ git submodule add \
 @[5](Instruct GitLab CI to clone submodules)
 @[6](Specify your GitLab Server url)
 @[7-8](Add before script to check for last green commit)
-@[17-18](Build `./projectX` only if `./projectX` changed)
+@[17-18](Build `./a` only if `./a` changed)
 @[24-25](Works on both Linux & Windows)
 
 ---
@@ -165,7 +165,7 @@ webapp:
 @[2-7](The job template)
 @[3-5](All jobs use the same *tags*...)
 @[6](And the same *stage*...)
-@[7-8](And the same *script*. Note that we use *CI_JOB_NAME*!)
+@[7-8](And the same *script*. Note that we use `${CI_JOB_NAME}` !)
 @[10-11](One job is specified by just its name and the template. Great!)
 
 - That's it! |
