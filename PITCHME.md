@@ -52,7 +52,7 @@ Monorepos are not for you if you have
 ### <span style="color: #e49436">Monorepo with GitLab CI?</span>
 
 <ul>
-<li class="fragment">Right now, GitLab CI is not really built for monorepos (cf.: [gitlab-ce/issues/19813](https://gitlab.com/gitlab-org/gitlab-ce/issues/19813))</li>
+<li class="fragment">Right now, GitLab CI is not really built for monorepos (cf.: [gitlab-ce/issues/19232](https://gitlab.com/gitlab-org/gitlab-ce/issues/19232))</li>
 <li class="fragment">Build all projects on each push just too slow</li>
 <li class="fragment">Know what changed, know what to build</li>
 </ul>
