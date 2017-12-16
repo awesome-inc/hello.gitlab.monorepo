@@ -40,11 +40,11 @@ You should head for Monorepos if you have
 
 ### <span style="color: #e49436">When not to use</span>
 
-Check your *DevOps Maturity*. Monorepos are not for you if you have
+Monorepos are not for you if you have
 <ul>
 <li class="fragment">poorly separated projects or...</li>
 <li class="fragment">poor automation (tests, deployment, ...)</li>
-<li class="fragment">see e.g. [A Maturity Model for Continuous Delivery](http://bekkopen.github.io/maturity-model/)</li>
+<li class="fragment">Check your [DevOps Maturity](http://bekkopen.github.io/maturity-model/)</li>
 </ul>
 
 ---
