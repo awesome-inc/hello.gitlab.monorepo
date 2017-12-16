@@ -12,11 +12,11 @@
 Google knows. Top 5 results for "monorepo"
 
 <ul>
-<li class="fragment">[Advantages of monolithic version control - Dan Luu](https://danluu.com/monorepo/)</li>
-<li class="fragment">[Monorepos in the Wild](https://medium.com/@maoberlehner/monorepos-in-the-wild-33c6eb246cb9)</li>
-<li class="fragment">[Why is Babel a monorepo?](https://github.com/babel/babel/blob/master/doc/design/monorepo.md)</li>
-<li class="fragment">[korfuri/awesome-monorepo](https://github.com/korfuri/awesome-monorepo)</li>
-<li class="fragment">[Monorepos in Git - Atlassian](https://developer.atlassian.com/blog/2015/10/monorepos-in-git/)</li>
+<li>[Advantages of monolithic version control - Dan Luu](https://danluu.com/monorepo/)</li>
+<li>[Monorepos in the Wild](https://medium.com/@maoberlehner/monorepos-in-the-wild-33c6eb246cb9)</li>
+<li>[Why is Babel a monorepo?](https://github.com/babel/babel/blob/master/doc/design/monorepo.md)</li>
+<li>[korfuri/awesome-monorepo](https://github.com/korfuri/awesome-monorepo)</li>
+<li>[Monorepos in Git - Atlassian](https://developer.atlassian.com/blog/2015/10/monorepos-in-git/)</li>
 </ul>
 
 +++
@@ -106,6 +106,7 @@ $ git submodule add \
 @[5](Instruct GitLab CI to clone submodules)
 @[6](Specify your GitLab Server url)
 @[7-8](Add before script to check for last green commit)
+@[23-25](Build `./projectX` only if `./projectX` changed)
 
 ---
 
