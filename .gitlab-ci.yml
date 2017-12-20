@@ -12,14 +12,16 @@ stages:
 
 build-a-unix:
   stage: build
-  tags: unix
+  tags: 
+    - unix
   # example for one liner (preferred) on linux
   script:
     - .monorepo.gitlab/build_if_changed.sh a cd a && cat README.md
 
 build-a-windows:
   stage: build
-  tags: windows
+  tags: 
+    - windows
   # example for one liner (preferred) on windows
   script:
     - .monorepo.gitlab\build_if_changed.bat a cd a && type README.md
