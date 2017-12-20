@@ -3,7 +3,7 @@
 # - https://docs.gitlab.com/ce/ci/variables/README.html#secret-variables
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
-  CI_SERVER_URL: https://mygitlab.mycompany.com
+  CI_SERVER_URL: https://gitlab.com
 before_script:
     - .monorepo.gitlab/last_green_commit.sh
 
@@ -12,8 +12,8 @@ stages:
 
 build-a-unix:
   stage: build
-  tags: 
-    - unix
+  #tags: 
+  #  - unix
   # example for one liner (preferred) on linux
   script:
     - .monorepo.gitlab/build_if_changed.sh a cd a && cat README.md
