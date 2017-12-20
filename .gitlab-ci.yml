@@ -16,7 +16,7 @@ build-a-linux:
     - linux
   # example for one liner (preferred) on linux
   script:
-    - .monorepo.gitlab/build_if_changed.sh a cd a && cat README.md
+    - .monorepo.gitlab/build_if_changed.sh a cat a/README.md
 
 build-a-windows:
   stage: build
@@ -24,12 +24,16 @@ build-a-windows:
     - windows
   # example for one liner (preferred) on windows
   script:
-    - .monorepo.gitlab\build_if_changed.bat a cd a && type README.md
+    - .monorepo.gitlab\build_if_changed.bat a type a\README.md
+  # disable this windows build for now
+  when: manual
 
 build-b:
   stage: build
+  tags: 
+    - linux
   # example for multiple lines (discouraged) on linux
   script:
-    - if [[ $(.monorepo.gitlab/changes.sh b) -ne 0]]; then echo "Skipping build for '${folder}'."; exit 0; fi
+    - if [ $(.monorepo.gitlab/changes.sh b) -ne 0 ]; then echo "Skipping build for '${folder}'."; exit 0; fi
     - cd b
     - ls -hal
