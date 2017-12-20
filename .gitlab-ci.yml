@@ -34,6 +34,6 @@ build-b:
     - linux
   # example for multiple lines (discouraged) on linux
   script:
-    - if [ $(.monorepo.gitlab/changes.sh b) -ne 0 ]; then echo "Skipping build for '${folder}'."; exit 0; fi
+    - if [[ $(.monorepo.gitlab/changes.sh b) -ne 0 ]]; then echo "Skipping build for '${folder}'." && exit 0; fi
     - cd b
     - ls -hal
