@@ -185,7 +185,7 @@ image:
 ```
 
 @[3-6](Enable **dind**)
-@[7-9](Use **docker.gitlab.monorepo base image**)
+@[7-9](Use **docker.gitlab.monorepo** base image)
 
 ---
 
