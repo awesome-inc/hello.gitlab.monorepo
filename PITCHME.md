@@ -168,7 +168,24 @@ webapp:
 @[7-8](And the same *script*. Note that we use `${CI_JOB_NAME}` !)
 @[10-11](One job is specified by just its name and the template. Great!)
 
-- That's it! |
+---
+
+*Pro Tip:* Use [docker-in-docker (dind) executor](http://blog.daemonl.com/2016/02/yaml.html#yaml-anchors-references-extend)
+
+```yml
+variables:
+  # cf.: https://docs.gitlab.com/ee/ci/docker/using_docker_build.html
+  DOCKER_HOST: tcp://docker:2375/
+  DOCKER_DRIVER: overlay2
+services:
+  - docker:dind
+image:
+  name: awesomeinc/docker.gitlab.monorepo:0.1.0
+  entrypoint: [""] # force an empty entrypoint, cf.: https://gitlab.com/gitlab-org/gitlab-runner/issues/2692#workaround  
+```
+
+@[3-6](Enable **dind**)
+@[7-9](Use **docker.gitlab.monorepo base image**)
 
 ---
 
